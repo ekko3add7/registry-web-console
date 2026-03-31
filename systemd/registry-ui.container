@@ -1,0 +1,15 @@
+[Unit]
+Description=Registry UI Container
+After=registry-srv.container
+
+[Container]
+Image=docker.io/jc21/registry-ui:develop
+ContainerName=registry-ui
+Pod=registry-stack.pod
+Environment=REGISTRY_HOST=registry.ekko.com:5000
+Environment=REGISTRY_SSL=false
+Environment=REGISTRY_STORAGE_DELETE_ENABLED=true
+Environment=REGISTRY_DOMAIN=registry.ekko.com:5000
+
+[Service]
+Restart=always

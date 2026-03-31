@@ -1,0 +1,15 @@
+[Unit]
+Description=Docker Registry V3 Container
+
+[Container]
+Image=docker.io/library/registry:3
+ContainerName=registry-srv
+Pod=registry-stack.pod
+Volume=/home/data/registry:/var/lib/registry:Z
+Environment=OTEL_SDK_DISABLED=true
+Environment=OTEL_TRACES_EXPORTER=none
+Environment=OTEL_METRICS_EXPORTER=none
+Environment=REGISTRY_LOG_LEVEL=info
+
+[Service]
+Restart=always

@@ -1,0 +1,10 @@
+[Unit]
+Description=Registry and UI Pod
+
+[Pod]
+PodName=registry-stack
+PublishPort=5000:5000
+PublishPort=80:80
+
+[Install]
+WantedBy=multi-user.target
